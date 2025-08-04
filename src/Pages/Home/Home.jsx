@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div className="scroll-smooth">
       <Helmet>
-        <title>Shamshad And Sons| Home</title>
+        <title>Shamshad And Sons</title>
       </Helmet>
       {loading ? (
         <div className="skeleton w-full h-[100vh]"></div>
