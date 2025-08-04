@@ -1,0 +1,37 @@
+import { useLocation } from "react-router-dom";
+import { servicesItem } from "../../Utils/servicesItem";
+
+const ServicesCard = () => {
+    const location = useLocation()
+    console.log(location.pathname);
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+        {location.pathname ==="/" ? servicesItem?.slice(0,3).map((service) => (
+        <div
+          key={service?.serviceTitle}
+          className="card bg-deep-blue shadow-xl rounded-none"
+        >
+            <img src={service?.serviceImage} alt={service?.serviceTitle} className="h-96 transition-transform duration-300 hover:scale-105"/>
+          <div className="card-body text-center">
+            <h2 className="card-title text-white-coffee capitalize font-bold text-center">{service?.serviceTitle}</h2>
+            <p className="text-white text-justify">{service?.serviceDescription}</p>
+          </div>
+        </div>
+      )) :servicesItem?.map((service) => (
+        <div
+          key={service?.serviceTitle}
+          className="card bg-deep-blue shadow-xl rounded-none"
+        >
+            <img src={service?.serviceImage} alt={service?.serviceTitle} className="h-96 transition-transform duration-300 hover:scale-105"/>
+          <div className="card-body">
+            <h2 className="card-title text-white-coffee capitalize font-bold text-center">{service?.serviceTitle}</h2>
+            <p className="text-white text-justify">{service?.serviceDescription}</p>
+          </div>
+        </div>
+      ))}
+      
+    </div>
+  );
+};
+
+export default ServicesCard;
